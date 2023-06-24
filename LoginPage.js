@@ -30,17 +30,12 @@ const LoginPage = ({ onLogin }) => {
   const [users, setUsers] = useState([]);
   const navigation = useNavigation();
 
-// Create a function to fetch user data from the server
 const fetchUsers = async () => {
   try {
-    // Send a GET request to the specified address
     const response = await axios.get('http://10.1.1.38:8000/api/user-credentials/');
-    // Save the received array in the users state
     setUsers(response.data.credentials);
-    // Log the received array to the console
     console.log(response.data.credentials);
   } catch (error) {
-    // Log the error to the console
     console.error(error);
   }
 };

@@ -12,7 +12,7 @@ const AdminScreen = () => {
     <View style={{ flex: 1, padding: 20 }}>
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
         <Image
-          source={require('./profile_picture.png')} // Замените на путь к изображению профиля
+          source={require('./profile_picture.png')} 
           style={{ width: 80, height: 80, borderRadius: 40 }}
         />
         <View style={{ marginLeft: 20 }}>

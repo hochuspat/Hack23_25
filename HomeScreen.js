@@ -37,7 +37,7 @@ const HomeScreen = () => {
 
   const sendCompletionToServer = async (taskName, value) => {
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/save_data/', {
+      const response = await axios.post('http://10.1.1.38:8000/api/save_data/', {
         id: taskName,
         collected: value,
         add_file: null
