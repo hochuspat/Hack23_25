@@ -10,16 +10,16 @@ import AdminScreen from './AdminScreen';
 const Tab = createBottomTabNavigator();
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Добавляем состояние для проверки входа пользователя
+  const [isLoggedIn, setIsLoggedIn] = useState(false); 
 
   const handleLogin = () => {
-    // Функция для обновления состояния, когда пользователь входит
+  
     setIsLoggedIn(true);
   };
 
   return (
     <NavigationContainer>
-      {isLoggedIn ? ( // Проверяем состояние входа пользователя
+      {isLoggedIn ? (
         <Tab.Navigator
           screenOptions={({ route }) => ({
             tabBarIcon: ({ focused, color, size }) => {
@@ -46,7 +46,7 @@ const App = () => {
           <Tab.Screen name="Профиль" component={AdminScreen} />
         </Tab.Navigator>
       ) : (
-        <LoginPage onLogin={handleLogin} /> // Если пользователь не вошел, открываем страницу входа
+        <LoginPage onLogin={handleLogin} /> 
       )}
     </NavigationContainer>
   );
