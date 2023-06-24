@@ -1,19 +1,19 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const cors = require('cors'); // Добавленный модуль для кросс-доменных запросов
+const cors = require('cors'); 
 
 app.use(bodyParser.json());
-app.use(cors()); // Добавленный middleware для разрешения кросс-доменных запросов
+app.use(cors()); 
 
-const fields = []; // Массив для хранения полей
+const fields = [];
 
 app.get('/fields', (req, res) => {
   res.json(fields);
 });
 
 app.post('/fields', (req, res) => {
-  if (req.body.name && req.body.crop && req.body.coordinates) { // Добавленная проверка на наличие данных в теле запроса
+  if (req.body.name && req.body.crop && req.body.coordinates) { 
     const newField = {
       _id: Date.now().toString(),
       name: req.body.name,
