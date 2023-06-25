@@ -30,15 +30,16 @@ const LoginPage = ({ onLogin }) => {
   const [users, setUsers] = useState([]);
   const navigation = useNavigation();
 
-const fetchUsers = async () => {
-  try {
-    const response = await axios.get('http://10.1.1.38:8000/api/user-credentials/');
-    setUsers(response.data.credentials);
-    console.log(response.data.credentials);
-  } catch (error) {
-    console.error(error);
-  }
-};
+  const fetchUsers = async () => {
+    try {
+      const response = await axios.get('http://10.1.1.38:8000/api/user-credentials/');
+      setUsers(response.data.credentials);
+      console.log(response.data.credentials);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
     fetchUsers();
   }, []);
@@ -47,9 +48,11 @@ const fetchUsers = async () => {
     const user = users.find((user) => user.login === login && user.password === password);
     if (user) {
       if (user.role === 'admin') {
-        navigation.navigate('AdminScreen');
+        onLogin('admin');
+      } else if (user.role === 'admin2') {
+        onLogin('admin2');
       } else {
-        onLogin(); // Вызываем функцию onLogin, переданную из App.js
+        onLogin('admin3');
       }
     } else {
       Alert.alert('Неверный логин или пароль');
