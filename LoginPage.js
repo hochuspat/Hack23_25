@@ -47,12 +47,12 @@ const LoginPage = ({ onLogin }) => {
   const handleSubmit = () => {
     const user = users.find((user) => user.login === login && user.password === password);
     if (user) {
-      if (user.role === 'admin') {
-        onLogin('admin');
+      if (user.role === 'admin3') {
+        onLogin('admin3');
       } else if (user.role === 'admin2') {
         onLogin('admin2');
       } else {
-        onLogin('admin3');
+        onLogin(' ');
       }
     } else {
       Alert.alert('Неверный логин или пароль');

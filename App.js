@@ -7,7 +7,7 @@ import HomeScreen from './HomeScreen';
 import MapScreen from './MapScreen';
 import AdminScreen from './AdminScreen';
 import Zadacha2 from './Zadacha2';
-import PhenophasesScreen from './PhenophasesScreen'
+import PhenophasesScreen from './PhenophasesScreen';
 import UraSon from './UraSon';
 
 const Tab = createBottomTabNavigator();
@@ -53,10 +53,7 @@ const App = () => {
           <Tab.Screen name="Фенофазы" component={PhenophasesScreen} />
         </Tab.Navigator>
       );
-    }
-    
-    
-    if (userRole === 'admin3') {
+    } else if (userRole === 'admin3') {
       return (
         <Tab.Navigator
           screenOptions={({ route }) => ({
@@ -87,11 +84,7 @@ const App = () => {
           <Tab.Screen name="Фенофазы" component={PhenophasesScreen} />
         </Tab.Navigator>
       );
-    }
-    
-    
-    
-    else {
+    } else {
       return (
         <Tab.Navigator
           screenOptions={({ route }) => ({
@@ -124,7 +117,11 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      {isLoggedIn ? renderTabNavigator() : <LoginPage onLogin={handleLogin} />}
+      {isLoggedIn ? (
+        renderTabNavigator()
+      ) : (
+        <LoginPage onLogin={handleLogin} />
+      )}
     </NavigationContainer>
   );
 };
